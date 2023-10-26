@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:54:34 by otaraki           #+#    #+#             */
-/*   Updated: 2023/10/25 18:02:23 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/10/26 22:10:55 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ void	 PhoneBook::Add()
 
 	std::cout << "-->> PhoneBook <<--" << std::endl;
 	std::cout << "Entre your first name :" << std::endl;
-	std::cin >> str;
+	std::getline(std::cin, str);
 	if (str.empty())
 		return;
 	ArrContact[i % 8].SetFirstName(str);
 	std::cout << "> last Name:" << std::endl;
-	std::cin >> str;
+	std::getline(std::cin, str);
 	if (str.empty())
 		return;
 	ArrContact[i % 8].SetLastName(str);
 	std::cout << "> Nick Name:" << std::endl;
-	std::cin >> str;
+	std::getline(std::cin, str);
 	if (str.empty())
 		return;
 	ArrContact[i % 8].SetNicktName(str);
 	std::cout << "> Dark secret:" << std::endl;
-	std::cin >> str;
+	std::getline(std::cin, str);
 	if (str.empty())
 		return;
 	ArrContact[i % 8].SetDarkSecret(str);
@@ -88,9 +88,11 @@ int main()
 	std::string cmd;
 	while(1)
 	{
-		std::cin >> cmd;
-		if (cmd.empty())
-			break ;
+		std::getline(std::cin, cmd);
+		if (std::cin.eof())
+			break;
+		else
+			std::cout << cmd<<std::endl;
 		if (cmd == "ADD")
 			book.Add();
 		else if (cmd == "SEARCH")

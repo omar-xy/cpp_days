@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:56:14 by otaraki           #+#    #+#             */
-/*   Updated: 2023/10/25 15:11:02 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/10/26 14:51:49 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,7 @@ class PhoneBook
 		PhoneBook(){};
 		Contact ArrContact[8];
 		void Add();
-		void display(){
-			std::cout << ArrContact[0].GetFirstName() << std::endl;
-			std::cout << ArrContact[0].GetLastName()	 << std::endl;
-			}
 		void Search();
-		// void Exit();
 };
 
 #endif
