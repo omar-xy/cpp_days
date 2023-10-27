@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:55:41 by otaraki           #+#    #+#             */
-/*   Updated: 2023/10/24 20:20:08 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/10/27 16:51:54 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,7 @@ std::string	Contact::GetDarkSecret()
 	return (DarkestSecret);
 }
 
-int	Contact::GetIndex()
-{
-	return (Index);
-}
-
 // set value to the contact:
-
-void	Contact::SetIndex(int index)
-{
-	Index = index;
-}
 
 void		Contact::SetFirstName(std::string value)
 {
@@ -62,6 +52,10 @@ void		Contact::SetLastName(std::string value)
 void		Contact::SetNicktName(std::string value)
 {
 	NickName = value;
+}
+void		Contact::SetPhoneNumber(std::string value)
+{
+	PhoneNumber = value;
 }
 void		Contact::SetDarkSecret(std::string value)
 {

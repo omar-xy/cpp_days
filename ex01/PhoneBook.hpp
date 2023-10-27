@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:56:14 by otaraki           #+#    #+#             */
-/*   Updated: 2023/10/26 14:51:49 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/10/27 16:03:16 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 
 class PhoneBook
 {
+	private:
+		unsigned int size;
 	public:
-		PhoneBook(){};
 		Contact ArrContact[8];
+		PhoneBook();
 		void Add();
 		void Search();
 };
