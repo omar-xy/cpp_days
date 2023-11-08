@@ -5,21 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/24 14:54:42 by otaraki           #+#    #+#              #
-#    Updated: 2023/10/24 14:59:41 by otaraki          ###   ########.fr        #
+#    Created: 2023/11/05 21:23:20 by otaraki           #+#    #+#              #
+#    Updated: 2023/11/07 00:20:30 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = phonebook
+NAME = Zombie
 
-HEADER = PhoneBook.hpp Contact.hpp
+HEADER = Zombie.hpp
 
-SRC = PhoneBook.cpp Contact.cpp
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
