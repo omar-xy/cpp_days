@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 21:25:14 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/08 20:57:06 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/09 16:19:05 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie();
 		void announce(void);
+		void setZombieName(std::string name);
 };
 
 Zombie* zombieHorde(int N, std::string name );

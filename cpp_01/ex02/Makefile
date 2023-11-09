@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/08 18:56:12 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/09 18:12:26 by otaraki          ###   ########.fr        #
+#    Created: 2023/11/05 21:23:30 by otaraki           #+#    #+#              #
+#    Updated: 2023/11/09 18:44:54 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,18 @@ CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Zombie
+NAME = Brain
 
-HEADER = Zombie.hpp
-
-SRC = main.cpp  ZombieHorde.cpp Zombie.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : $(SRC)
+	$(CPP) $(SRC) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
-	$(CPP) $(CPPFLAGS) -c $< 
+%.o : %.cpp
 
 clean:
 	rm -rf $(OBJ)

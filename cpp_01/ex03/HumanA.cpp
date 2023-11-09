@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 19:00:24 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/09 18:36:58 by otaraki          ###   ########.fr       */
+/*   Created: 2023/11/09 18:59:31 by otaraki           #+#    #+#             */
+/*   Updated: 2023/11/09 21:08:05 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanA.hpp"
 
-#include "Zombie.hpp"
 
-Zombie *zombieHorde(int N, std::string name)
+HumanA::HumanA(const std::string _name, Weapon &_type) : type(_type)
 {
-	Zombie *z = new Zombie[N];
-	if (!z)
-		return NULL;
-	if (N < 0 || N >= INT_MAX)
-		return NULL;
-	if (name.empty())
-		return NULL;
-	for(int i = 0; i < N; i++)
-	{
-		z[i].setZombieName(name);
-		z[i].announce();
-	}
-	return z;
+	this->name = _name;
+}
+
+HumanA::~HumanA()
+{
+	return ;
+}
+
+void HumanA::attack()
+{
+	std::cout << this->name << " attack with their ";
+	std::cout << this->type.getType() << std::endl;
 }

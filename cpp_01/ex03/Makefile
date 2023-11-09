@@ -5,26 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/08 18:56:12 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/09 18:12:26 by otaraki          ###   ########.fr        #
+#    Created: 2023/11/09 18:57:32 by otaraki           #+#    #+#              #
+#    Updated: 2023/11/09 21:09:00 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror  -std=c++98
+# -std=c++98
 
-NAME = Zombie
+NAME = HumanS
 
-HEADER = Zombie.hpp
+HEADER = Weapon.hpp HumanA.hpp HumanB.hpp
 
-SRC = main.cpp  ZombieHorde.cpp Zombie.cpp
+SRC = main.cpp  Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(HEADER)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 %.o : %.cpp $(HEADER)
