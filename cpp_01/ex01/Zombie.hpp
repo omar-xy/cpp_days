@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 21:25:14 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/09 16:19:05 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/13 01:15:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
+#include <climits>
 
 
 class Zombie
