@@ -6,14 +6,13 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 17:55:17 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/12 22:11:24 by otaraki          ###   ########.fr        #
+#    Updated: 2023/11/13 23:31:47 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror  -std=c++98
-# -std=c++98
 
 NAME = Harl
 

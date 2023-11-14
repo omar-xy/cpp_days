@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:56:24 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/12 22:13:37 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/14 00:08:07 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Harl
 	public:
 		Harl();
 		~Harl();
-		// Harl* H[4];
 		void complain( std::string level );
 };
 

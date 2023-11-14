@@ -6,14 +6,13 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 21:23:30 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/12 13:10:54 by otaraki          ###   ########.fr        #
+#    Updated: 2023/11/13 23:31:50 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror  -std=c++98
-# -std=c++98
 
 NAME = replace
 

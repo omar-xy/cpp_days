@@ -6,25 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 13:09:12 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/12 21:46:14 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/13 23:28:54 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Head.hpp"
-#include <string>
-#include <fstream>
-#include <iostream>
-
-void	changeTheOccurr(std::string& stream, std::string& s1, std::string& s2)
-{
-	size_t index = 0;
-	while((index = stream.find(s1, index)) != std::string::npos)
-	{
-		stream = stream.substr(0, index) + s2 + stream.substr(index + s1.length());
-		index += s2.length();
-	}
-}
-
 
 int main(int ac, char *av[])
 {

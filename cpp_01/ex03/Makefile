@@ -6,14 +6,14 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 18:57:32 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/09 21:09:00 by otaraki          ###   ########.fr        #
+#    Updated: 2023/11/13 23:31:57 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror  -std=c++98
-# -std=c++98
+
 
 NAME = HumanS
 
