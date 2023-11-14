@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:59:24 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/12 22:32:29 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/14 02:13:39 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ int main()
 	ptr->complain("warning");
 	ptr->complain("lol");
 	ptr->complain("lol");
+	ptr->complain("debug");
 }

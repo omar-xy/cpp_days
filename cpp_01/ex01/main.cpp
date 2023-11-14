@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:21:04 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/13 01:15:58 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 01:56:50 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main(void)
 {
-	Zombie *z = zombieHorde(1, "Horde");
+	Zombie *z = zombieHorde(1, "zbi");
 	delete [] z;
-
 }

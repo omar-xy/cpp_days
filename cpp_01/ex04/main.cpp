@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 13:09:12 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/13 23:28:54 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/14 02:09:00 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int main(int ac, char *av[])
 		std::ofstream FileOut;
 		
 
+
+		if (s1.empty())
+			return 1;
 		FileIn.open(filename.c_str());
 		if (!FileIn.good())
 		{

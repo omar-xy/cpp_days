@@ -5,26 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/05 21:23:30 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/13 23:31:50 by otaraki          ###   ########.fr        #
+#    Created: 2023/11/14 18:08:48 by otaraki           #+#    #+#              #
+#    Updated: 2023/11/14 18:10:21 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror  -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = replace
+NAME = Fixed
 
-HEADER = Head.hpp
+HEADER = Fixed.hpp
 
-SRC = main.cpp Replace.cpp 
+SRC = main.cpp Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ) $(HEADER)
+$(NAME) : $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 %.o : %.cpp $(HEADER)

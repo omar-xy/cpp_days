@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 21:24:39 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/14 00:00:11 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/14 01:46:35 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main(void)
 {
-	Zombie *zombie = newZombie("booo");
+	Zombie *zombie = newZombie("");
+	// zombie->setZombieName("");
 	zombie->announce();
 	randomChump("soooo");
 	delete zombie;
