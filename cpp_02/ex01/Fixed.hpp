@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:08:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/15 19:19:39 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/15 23:40:23 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 
 class Fixed
@@ -24,11 +25,17 @@ class Fixed
 		static const int _frac = 8;
 	public:
 		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
 		Fixed(const Fixed& other);
 		Fixed& operator=(const Fixed& other);
 		~Fixed();
+		friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+		float toFloat( void ) const;
+		int toInt( void ) const;
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
+		void display() const ;
 };
 
 
