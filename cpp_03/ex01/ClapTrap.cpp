@@ -10,19 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : name("Default"), Hit_pts(10), energy_pts(10), attack_dmg(0)
 {
-    std::cout << "Default ClapTrap constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     return ;
 }
 
 ClapTrap::ClapTrap(std::string _name)
 {
-        std::cout << "ClapTrap constructor called" << std::endl;
         this->name = _name;
         this->Hit_pts = 10;
         this->energy_pts = 10;
@@ -50,7 +47,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& value)
 
 ClapTrap::~ClapTrap()
 {
-      std::cout << "ClapTrap Destructor called" << std::endl;
+      std::cout << "Destructor called" << std::endl;
 }
 
 std::string ClapTrap::getName() const
@@ -75,13 +72,12 @@ int ClapTrap::getAttackDmg() const
 
 void ClapTrap::attack(const std::string& target)
 {
-    ClapTrap a;
-    if (!energy_pts || !Hit_pts)
+    if (!energy_pts)
     {
-        std::cout << "ClapTrap " << a.getName() << " can't attack because he is dead" << std::endl;
+        std::cout << "ClapTrap " << name << " can't attack because he is dead" << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << a.getName() << " attacks " << target << ", causing " << a.getHitpts();
+    std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_dmg;
     std::cout << "points of damage!" << std::endl;
    energy_pts -= 1;
 }

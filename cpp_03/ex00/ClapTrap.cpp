@@ -74,13 +74,12 @@ int ClapTrap::getAttackDmg() const
 
 void ClapTrap::attack(const std::string& target)
 {
-    ClapTrap a;
-    if (!energy_pts || !Hit_pts)
+    if (!energy_pts)
     {
-        std::cout << "ClapTrap " << a.getName() << " can't attack because he is dead" << std::endl;
+        std::cout << "ClapTrap " << name << " can't attack because he is dead" << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << a.getName() << " attacks " << target << ", causing " << a.getHitpts();
+    std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_dmg;
     std::cout << "points of damage!" << std::endl;
    energy_pts -= 1;
 }
