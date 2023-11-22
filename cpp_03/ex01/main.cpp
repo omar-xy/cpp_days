@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:04:37 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/22 17:02:47 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/22 19:33:48 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 
 int main()
 {
-    // ClapTrap a("holla");
     ScavTrap b("Boris");
     
     b.attack("HH");
-    b.attack("HH");
-    b.attack("HH");
-    b.attack("HH");
-    b.attack("HH");
-    b.attack("HH");
-    
-    // c.attack("Alyona");
-    
+    b.takeDamage(100);
+    b.beRepaired(100);
+    b.attack("lool");
+    b.takeDamage(100);
+    b.attack("lool");
     return 0;
 }
