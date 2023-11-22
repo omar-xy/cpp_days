@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:08:39 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/16 21:42:28 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/20 12:21:33 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,78 +75,82 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 // operator + - * /
 Fixed Fixed::operator+(const Fixed& other) const
 {
-    return (Fixed(this->toFloat() + other.toFloat()));
+    return (Fixed(this->getRawBits() + other.getRawBits()));
 }
 
 Fixed Fixed::operator-(const Fixed& other) const 
 {
-    return (Fixed(this->toFloat() - other.toFloat()));
+    return (Fixed(this->getRawBits() - other.getRawBits()));
 }
 
 Fixed Fixed::operator*(const Fixed& other) const 
 {
-    return Fixed(this->toFloat() * other.toFloat());
+	Fixed temp;
+    temp.setRawBits((this->_value * other.getRawBits()) >> this->_frac);
+	return temp;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const 
 {
-    return Fixed(this->toFloat() / other.toFloat());
+    Fixed temp;
+    temp.setRawBits((this->_value * (1 << 8) / other.getRawBits()));
+	return temp;
 }
 ////// end of the four operators
 
 // the boolean operators
 bool Fixed::operator>(const Fixed& data)
 {
-	return (this->toFloat() > data.toFloat());
+	return (this->getRawBits() > data.getRawBits());
 }
 
 bool Fixed::operator<(const Fixed& data)
 {
-	return (this->toFloat() < data.toFloat());
+	return (this->getRawBits() < data.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed& data)
 {
-	return (this->toFloat() >= data.toFloat());
+	return (this->getRawBits() >= data.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed& data)
 {
-	return (this->toFloat() <= data.toFloat());
+	return (this->getRawBits() <= data.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed& data)
 {
-	return (this->toFloat() == data.toFloat());
+	return (this->getRawBits() == data.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed& data)
 {
-	return (this->toFloat() != data.toFloat());
+	return (this->getRawBits() != data.getRawBits());
 }
 // the end of the boolean operators
 
 // the increment and decrement operators
-Fixed& Fixed::operator++()//prefix
+Fixed& Fixed::operator++()
 {
 	this->_value++;
 	return *this;
 }
 
-Fixed Fixed::operator++(int)//postfix
+Fixed Fixed::operator++(int)
 {
 	Fixed temp = *this;
 	++*this;
 	return temp;
 }
 
-Fixed& Fixed::operator--()//prefix
+Fixed& Fixed::operator--()
 {
 	this->_value--;
 	return *this;
 }
 
-Fixed Fixed::operator--(int)//postfix
+Fixed Fixed::operator--(int)
 {
 	Fixed temp = *this;
 	--*this;
@@ -165,21 +169,21 @@ Fixed& Fixed::min(Fixed& a, Fixed& b)
 
 Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a.getRawBits() > b.getRawBits())
 		return a;
 	return b;
 }
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 {
-	if (a.toFloat() < b.toFloat())
+	if (a.getRawBits() < b.getRawBits())
 		return a;
 	return b;
 }
 
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a.getRawBits() > b.getRawBits())
 		return a;
 	return b;
 }

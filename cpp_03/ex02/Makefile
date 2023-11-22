@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/14 18:08:48 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/18 15:34:16 by otaraki          ###   ########.fr        #
+#    Created: 2023/11/21 11:05:57 by otaraki           #+#    #+#              #
+#    Updated: 2023/11/21 11:06:12 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Fixed
+NAME = FragTrap
 
-HEADER = Fixed.hpp
+HEADER = FragTrap.hpp
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp FragTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

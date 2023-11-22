@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 18:08:45 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/20 10:58:48 by otaraki          ###   ########.fr       */
+/*   Created: 2023/11/21 11:04:37 by otaraki           #+#    #+#             */
+/*   Updated: 2023/11/21 21:42:33 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
 
-int main( void ) 
+#include "ClapTrap.hpp"
+
+int main()
 {
-	Fixed a;
-	a.setRawBits(42);
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
+    ClapTrap a("holla");
+    ClapTrap b("Boris");
+    ClapTrap c(b);
+
+    a.attack("Boris");
+    b.attack("Alyona");
+    c.attack("Alyona");
+    return 0;
 }

@@ -5,20 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/14 18:08:48 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/18 15:34:16 by otaraki          ###   ########.fr        #
+#    Created: 2023/11/21 11:02:48 by otaraki           #+#    #+#              #
+#    Updated: 2023/11/21 11:04:30 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Fixed
+NAME = ClapTrap
 
-HEADER = Fixed.hpp
+HEADER = ClapTrap.hpp
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

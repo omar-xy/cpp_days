@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 18:08:39 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/16 21:10:04 by otaraki          ###   ########.fr       */
+/*   Created: 2023/11/20 10:40:25 by otaraki           #+#    #+#             */
+/*   Updated: 2023/11/20 10:58:10 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int	Fixed::getRawBits() const
 
 void	Fixed::setRawBits(int const raw)
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }
