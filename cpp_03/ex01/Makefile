@@ -6,7 +6,7 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 11:04:06 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/21 11:05:30 by otaraki          ###   ########.fr        #
+#    Updated: 2023/11/22 16:40:25 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = ScavTrap
 
-HEADER = ScavTrap.hpp
+HEADER = ScavTrap.hpp ClapTrap.hpp
 
-SRC = main.cpp ScavTrap.cpp
+SRC = main.cpp ScavTrap.cpp ClapTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
