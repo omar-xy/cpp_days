@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:05:03 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/22 16:50:46 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/22 17:02:10 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void ScavTrap::attack(const std::string& target)
     }
     std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << Hit_pts;
     std::cout << "points of damage!" << std::endl;
-   energy_pts -= 1;
+   energy_pts -= 10;
 }
 
 void ScavTrap::guardGate()
