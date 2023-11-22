@@ -6,11 +6,9 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:03:28 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/22 19:21:41 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/22 19:28:27 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "ClapTrap.hpp"
 
@@ -22,7 +20,7 @@ ClapTrap::ClapTrap() : name("Default"), Hit_pts(10), energy_pts(10), attack_dmg(
 
 ClapTrap::ClapTrap(std::string _name)
 {
-        std::cout << "ClapTrap " << _name << " constructor called" << std::endl;
+        std::cout << "ClapTrap "<< _name << " constructor called" << std::endl;
         this->name = _name;
         this->Hit_pts = 10;
         this->energy_pts = 10;
@@ -98,9 +96,9 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (!energy_pts || !Hit_pts)
+    if (!energy_pts)
     {
-        std::cout << "ClapTrap " << this->name << " can't be repaired because he is dead" << std::endl;
+        std::cout << "ClapTrap " << this->name << " can't be repaired because he has no energy points left" << std::endl;
         return ;
     }
     std::cout << "ClapTrap " << this->name << " is repaired by " << amount << " points!" << std::endl;
