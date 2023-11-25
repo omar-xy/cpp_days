@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:56:59 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:28:36 by otaraki          ###   ########.fr       */
+/*   Created: 2023/11/23 16:56:26 by otaraki           #+#    #+#             */
+/*   Updated: 2023/11/25 16:28:09 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal
+class Cat : public Animal
 {
+    private:
+        Brain *_brain;
     public:
-        Dog();
-        Dog(const Dog &copy);
-        ~Dog();
-        Dog	&operator=(const Dog &copy);
+        Cat();
+        Cat(const Cat &copy);
+        ~Cat();
+        Cat	&operator=(const Cat &copy);
+    void	makeSound() const;
+        Brain *getBrain();
         void setType(std::string type);
-        void	makeSound() const;
 };
 
 #endif

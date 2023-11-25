@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:56:59 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:28:36 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:28:15 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 # define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
+    private:
+        Brain *_brain;
     public:
         Dog();
         Dog(const Dog &copy);
         ~Dog();
         Dog	&operator=(const Dog &copy);
-        void setType(std::string type);
         void	makeSound() const;
+        Brain *getBrain();
+        void setType(std::string type);
 };
 
 #endif
