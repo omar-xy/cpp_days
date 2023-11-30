@@ -6,13 +6,14 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 17:24:05 by otaraki           #+#    #+#              #
-#    Updated: 2023/11/28 18:14:11 by otaraki          ###   ########.fr        #
+#    Updated: 2023/11/30 02:57:51 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
+#-fsanitize=address -g
 
 NAME = Program
 

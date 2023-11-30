@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:24:23 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/28 23:24:16 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/30 03:00:30 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,37 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
+// void showLeaks()
+// {
+//     system("leaks Program");
+// }
+
 int main()
 {
+    // atexit(showLeaks);
     IMateriaSource* src = new MateriaSource();
-    src->learnMateria(NULL);
-    src->learnMateria(NULL);
-
-    
-    ICharacter* me = new Character("me");
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    ICharacter* me = new Character("bob");
     AMateria* tmp;
-    std::cout << "------------------" << std::endl;
     tmp = src->createMateria("ice");
-    std::cout << "------------------" << std::endl;
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    ICharacter* bob = new Character("bob");
-    me->use(0, *bob);
-    me->use(3, *bob);
-    delete bob;
-    delete me;
+    me->use(0, *me);
+    me->use(1, *me);
+    me->unequip(0);
+    me->unequip(1);
+
+    ICharacter* john = new Character("John");
+    tmp = src->createMateria("ice");
+    john->equip(tmp);
+    tmp = src->createMateria("cure");
+    john->equip(tmp);
+    john->use(0, *john);
+    john->use(1, *john);
+ 
     delete src;
+    delete john;
+    delete me;
 }

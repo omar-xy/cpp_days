@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:59:10 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:26:02 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/23 17:06:10 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ std::string	Animal::getType() const
     return (_type);
 }
 
-
+void	Animal::makeSound() const
+{
+    std::cout << "weeeeee weeeee weeeee" << std::endl;
+}
 /* ************************************************************************** */

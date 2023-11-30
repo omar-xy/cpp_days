@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:04:54 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/28 22:44:24 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/30 02:58:53 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class MateriaSource: public IMateriaSource
         MateriaSource(const MateriaSource &copy);
         ~MateriaSource();
         MateriaSource &operator=(const MateriaSource &copy);
+        AMateria            *getInventory(int idx) const;
+        int                 getCount() const;
         void learnMateria(AMateria*);
         AMateria* createMateria(std::string const & type);
 };

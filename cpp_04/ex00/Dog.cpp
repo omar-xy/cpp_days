@@ -6,13 +6,13 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:00:28 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/23 17:05:37 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:16:57 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
     std::cout << "Dog default constructor called" << std::endl;
     _type = "Dog";

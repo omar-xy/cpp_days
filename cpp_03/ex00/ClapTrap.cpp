@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:03:28 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/22 19:21:41 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:30:22 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int ClapTrap::getAttackDmg() const
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (!energy_pts)
+    if (!energy_pts || !Hit_pts)
     {
         std::cout << "ClapTrap " << name << " can't attack because he is dead" << std::endl;
         return ;

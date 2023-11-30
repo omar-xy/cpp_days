@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:35:57 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 15:57:11 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 22:38:39 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 Brain::Brain()
 {
     std::cout << "Brain default constructor called" << std::endl;
+    for(int i = 0; i < 100; i++)
+    {
+        _ideas[i] = "A lot of ideas..";
+    }
 }
 
 Brain::Brain(const Brain &copy)
@@ -34,7 +38,9 @@ Brain	&Brain::operator=(const Brain &copy)
     if (this != &copy)
     {
         for (int i = 0; i < 100; i++)
+        {
             this->_ideas[i] = copy._ideas[i];
+        }
     }
     return (*this);
 }
@@ -48,5 +54,5 @@ void	Brain::setIdeas(std::string ideas)
 {
     for (int i = 0; i < 100; i++)
         _ideas[i] = ideas;
-}
 
+}

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:05:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/22 19:26:38 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:41:53 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
     public:
         ScavTrap();
@@ -23,8 +23,8 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap(const ScavTrap& copy);
         ScavTrap& operator=(const ScavTrap& value);
         ~ScavTrap();
-        void attack(const std::string& target); // Override the attack function
-        void guardGate(); // New member function for ScavTrap
+        void attack(const std::string& target);
+        void guardGate();
 };
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:30:03 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/28 22:23:44 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 22:25:36 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ class Ice: public AMateria
 
     public: 
         Ice ();
-        Ice (std::string const & type);
         Ice (const Ice  &copy);
-         ~Ice ();
+        ~Ice ();
         Ice  &operator=(const Ice  &copy);
 
-        std::string const & getType() const; // Returns the materia type
+        std::string const & getType() const;
         Ice * clone() const;
         void use(ICharacter &target);
 };

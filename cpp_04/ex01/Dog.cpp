@@ -6,11 +6,13 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:00:28 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:32:08 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/30 02:14:49 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+
+class Brain;
 
 Dog::Dog()
 {
@@ -23,7 +25,9 @@ Dog::Dog()
 Dog::Dog(const Dog &copy)
 {
     std::cout << "Dog copy constructor called" << std::endl;
-    *this = copy;
+    
+    this->_brain = new Brain();
+    _type = copy.getType();
 }
 
 Dog::~Dog()
@@ -35,11 +39,17 @@ Dog::~Dog()
 Dog	&Dog::operator=(const Dog &copy)
 {
     std::cout << "Dog assignation operator called" << std::endl;
-    _type = copy.getType();
+    if (this != &copy)
+    {
+        if (this->_brain)
+            delete this->_brain;
+        this->_brain = new Brain();
+        _type = copy.getType();
+    }
     return (*this);
 }
 
-Brain    *Dog::getBrain()
+Brain    *Dog::getBrain() const
 {
     return (_brain);
 }
@@ -53,5 +63,3 @@ void	Dog::makeSound() const
 {
     std::cout << "How how how" << std::endl;
 }
-
-/* ************************************************************************** */

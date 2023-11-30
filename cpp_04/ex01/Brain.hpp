@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:36:04 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/24 16:40:12 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 22:44:56 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Brain
     public:
         Brain();
         Brain(const Brain &copy);
-        virtual ~Brain();
+        ~Brain();
         Brain	&operator=(const Brain &copy);
         std::string *getIdeas();
         void	setIdeas(std::string ideas);

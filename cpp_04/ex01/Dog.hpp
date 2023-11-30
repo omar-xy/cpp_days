@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:56:59 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:28:15 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:57:37 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : public Animal
         ~Dog();
         Dog	&operator=(const Dog &copy);
         void	makeSound() const;
-        Brain *getBrain();
+        Brain *getBrain() const;
         void setType(std::string type);
 };
 

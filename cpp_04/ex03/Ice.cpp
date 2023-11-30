@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:47:54 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/28 23:28:46 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 22:31:21 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,28 @@
 
 Ice::Ice() : AMateria()
 {
-    std::cout << "Ice default constructor called" << std::endl;
     this->_type = "ice";
-}
-
-
-Ice::Ice(std::string const & type) : AMateria(type)
-{
-    std::cout << "Ice constructor called" << std::endl;
-    this->_type = type;
+    // std::cout << "Ice default constructor called" << std::endl;
 }
 
 Ice::Ice(const Ice &copy)   
 {
-    std::cout << "Ice copy constructor called" << std::endl;
+    // std::cout << "Ice copy constructor called" << std::endl;
     *this = copy;
 }
 
 
 Ice &Ice::operator=(const Ice &copy)
 {
-    std::cout << "Ice assignation operator called" << std::endl;
+    // std::cout << "Ice assignation operator called" << std::endl;0
     if (this != &copy)
         this->_type = copy.getType();
-    if (copy._type != "Ice")
-    {
-        this->_type = "";
-        std::cout << "Error: Ice assignation operator called with wrong type" << std::endl;
-        return (*this);
-    }
     return (*this);
 }
 
 Ice::~Ice()
 {
-    std::cout << "Ice destructor called" << std::endl;
+    // std::cout << "Ice destructor called" << std::endl;
 }
 
 
@@ -67,7 +54,7 @@ void Ice::use(ICharacter &target)
 
 Ice *Ice::clone() const
 {
-    return (new Ice(this->_type));
+    return (new Ice());
 }
 
 

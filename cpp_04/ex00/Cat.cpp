@@ -6,13 +6,13 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:59:57 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/23 17:05:49 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:16:13 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
     std::cout << "Cat default constructor called" << std::endl;
     _type = "Cat";

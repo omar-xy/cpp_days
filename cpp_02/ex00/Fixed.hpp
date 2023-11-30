@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:08:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/20 10:58:10 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/22 19:57:21 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Fixed
 	private:
 		int _value;
 		static const int _frac = 8;
+		int *ptr;
 	public:
 		Fixed();
 		Fixed(const Fixed& other);

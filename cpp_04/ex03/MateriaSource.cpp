@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:12:22 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/28 23:17:35 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/30 02:56:30 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
+    AMateria *tmp;
     _count = copy._count;
     for (int i = 0; i < 4; i++)
-        _inventory[i] = copy._inventory[i];
+    {
+        tmp = copy.getInventory(i);
+        if (tmp)
+            _inventory[i] = tmp->clone();
+        else
+            _inventory[i] = NULL;
+    }
 }
 
 
@@ -34,26 +41,48 @@ MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; i++)
     {
-        if (_inventory[i] != NULL)
-            delete _inventory[i];
+        delete _inventory[i];
     }
+    // std::cout << "MateriaSource deleted" << std::endl;
 }
 
 
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &copy)
 {
-    _count = copy._count;
+    AMateria *tmp;
+    
+    _count = copy.getCount();
     for (int i = 0; i < 4; i++)
-        _inventory[i] = copy._inventory[i];
+    {
+        tmp = copy.getInventory(i);
+        if (tmp)
+            _inventory[i] = tmp->clone();
+        else
+            _inventory[i] = NULL;
+    }
     return (*this);
 }
 
 
+AMateria            *MateriaSource::getInventory(int idx) const
+{
+    if (idx < 0 || idx > 3)
+        return (NULL);
+    return (_inventory[idx]);
+}
+
+
+int                 MateriaSource::getCount() const
+{
+    return (_count);
+}
+
 void MateriaSource::learnMateria(AMateria* m)
 {
-    if (_count < 4)
+    if (m &&  _count < 4)
     {
+        // std::cout << "Materia learned" << std::endl;
         _inventory[_count] = m;
         _count++;
     }
@@ -69,6 +98,3 @@ AMateria* MateriaSource::createMateria(std::string const & type)
     }
     return (NULL);
 }
-
-
-

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:19 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:26:24 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/30 03:02:46 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class Animal
         Animal();
         Animal(std::string type);
         Animal(const Animal &copy);
-        virtual ~Animal(); // Added virtual keyword
+        virtual ~Animal();
         Animal &operator=(const Animal &copy);
         std::string getType() const;
-        virtual void makeSound() const = 0;// Added virtual keyword
+        virtual void makeSound() const = 0;
 };
 
 #endif

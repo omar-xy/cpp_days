@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:56:26 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/25 16:27:43 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/29 18:25:20 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cat : public Animal
         ~Cat();
         Cat	&operator=(const Cat &copy);
         void	makeSound() const;
-        Brain *getBrain();
+        Brain *getBrain()const;
         void setType(std::string type);
 };
 

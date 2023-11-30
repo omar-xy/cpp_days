@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:06:31 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/22 19:45:10 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:41:39 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public ClapTrap
 {
     public:
         FragTrap();
@@ -24,8 +24,8 @@ class FragTrap : virtual public ClapTrap
         FragTrap(const FragTrap& copy);
         FragTrap& operator=(const FragTrap& value);
         ~FragTrap();
-        void attack(const std::string& target); // Override the attack function
-        void highFivesGuys(); // New member function for FragTrap
+        void attack(const std::string& target);
+        void highFivesGuys();
 };
 
 #endif
