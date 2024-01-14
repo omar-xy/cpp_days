@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:00:28 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/29 17:16:57 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/12/01 14:38:48 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	Dog::setType(std::string type)
 
 void	Dog::makeSound() const
 {
-    std::cout << "How how how" << std::endl;
+    std::cout << "How how how ghrrrrr" << std::endl;
 }
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:12:22 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/30 02:56:30 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/12/01 14:49:42 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@ void MateriaSource::learnMateria(AMateria* m)
         // std::cout << "Materia learned" << std::endl;
         _inventory[_count] = m;
         _count++;
+    }
+    else
+    {
+        if (m)
+            delete(m);
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:57:56 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/30 03:06:15 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/12/01 14:53:21 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void Character::unequip(int idx)
 {
     if (idx >= 0 && idx < 4)
     {
-        _inventory[idx] = NULL;
+        drop_materia(idx);
         _count--;
     }
     // std::cout << "the Materia unequiped" << std::endl;

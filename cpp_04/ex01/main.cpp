@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:02:01 by otaraki           #+#    #+#             */
-/*   Updated: 2023/11/30 03:04:50 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/12/01 14:34:01 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@
 #include "WrongCat.hpp"
 #include "Brain.hpp"
 
+
+void lk ()
+{
+    system("leaks Program");
+}
+    // atexit(lk);
+    // Dog dog;
+    // Dog dog2(dog);
+    // return 0;
+
 int main()
 {
-
     const Animal* po = new Animal();
     const Animal* lo = new Dog();
     const Animal* ko = new Cat();
