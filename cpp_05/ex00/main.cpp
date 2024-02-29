@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:43:58 by otaraki           #+#    #+#             */
-/*   Updated: 2024/01/17 04:06:25 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/02/29 11:04:42 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main()
         Bureaucrat	bureaucrat("Bureaucrat", 1);
         std::cout << bureaucrat;
         bureaucrat.incrementGrade();
-        // std::cout << bureaucrat;
-        // bureaucrat.incrementGrade();
-        // std::cout << bureaucrat;
+        std::cout << bureaucrat;
+        bureaucrat.incrementGrade();
+        std::cout << bureaucrat;
     }
     catch (std::exception &e)
     {
