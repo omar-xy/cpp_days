@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 18:53:54 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:41:26 by otaraki          ###   ########.fr       */
+/*   Created: 2024/01/15 19:04:40 by otaraki           #+#    #+#             */
+/*   Updated: 2024/01/15 21:31:18 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,16 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
     private:
-        std::string	_target;
+        std::string const	_target;
     public:
-    // constructors && destructors
-        PresidentialPardonForm();
-        PresidentialPardonForm(std::string target);
-        PresidentialPardonForm(const PresidentialPardonForm &copy);
-         ~PresidentialPardonForm();
-        PresidentialPardonForm	&operator=(const PresidentialPardonForm &copy);
-
-    // getter
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string target);
+        ShrubberyCreationForm(const ShrubberyCreationForm &copy);
+         ~ShrubberyCreationForm();
+        ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &copy);
         std::string	getTarget() const;
-        
-    // member function
-        void	execute(Bureaucrat const & executor) const;
+        virtual void	execute(Bureaucrat const & executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:43:58 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:45:28 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/01/19 01:14:36 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -23,42 +24,16 @@ int main()
         std::cout << "ShrubberyCreationForm " << std::endl;
         Bureaucrat  b1("B1", 1);
         Bureaucrat  b2("B2", 2);
-
-        AForm *f1 = new ShrubberyCreationForm("S1");
-        b1.executeForm(*f1);
-        b2.executeForm(*f1);
-        std::cout << *f1 << std::endl;
-        b1.signForm(*f1);
-        b1.executeForm(*f1);
-        b2.executeForm(*f1);
-        std::cout << *f1 << std::endl;
-        delete f1;
-
+        
+        Intern a;
+        AForm *f = a.makeForm("ShrubberyCreationForm", "home");
+        b1.signForm(*f);
+        b1.executeForm(*f);
+        delete f;
         std::cout << "---------------------" << std::endl;
-        std::cout << "RobotomyRequestForm " << std::endl;
-        Bureaucrat  b3("B3", 3);
-        AForm *f2 = new RobotomyRequestForm("R1");
-        b3.executeForm(*f2);
-        std::cout << *f2 << std::endl;
-        b3.signForm(*f2);
-        b3.executeForm(*f2);
-        std::cout << *f2 << std::endl;
-        delete f2;
-
-        std::cout << "---------------------" << std::endl;
-        std::cout << "PresidentialPardonForm " << std::endl;
-        Bureaucrat  b4("B4", 4);
-        AForm *f3 = new PresidentialPardonForm("P1");
-        b4.executeForm(*f3);
-        std::cout << *f3 << std::endl;
-        b4.signForm(*f3);
-        b4.executeForm(*f3);
-        std::cout << *f3 << std::endl;
-        delete f3;
         
     }
     catch (std::exception &e) {
-        std::cout << "TEST" << std::endl;
         std::cout << e.what() << std::endl;
     }
     

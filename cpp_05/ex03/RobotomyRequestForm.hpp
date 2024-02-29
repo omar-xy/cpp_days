@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 18:53:54 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:41:26 by otaraki          ###   ########.fr       */
+/*   Created: 2024/01/15 19:07:24 by otaraki           #+#    #+#             */
+/*   Updated: 2024/01/15 19:08:30 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public AForm
+
+
+class RobotomyRequestForm : public AForm
 {
     private:
-        std::string	_target;
+        std::string const	_target;
     public:
-    // constructors && destructors
-        PresidentialPardonForm();
-        PresidentialPardonForm(std::string target);
-        PresidentialPardonForm(const PresidentialPardonForm &copy);
-         ~PresidentialPardonForm();
-        PresidentialPardonForm	&operator=(const PresidentialPardonForm &copy);
-
-    // getter
+        RobotomyRequestForm();
+        RobotomyRequestForm(std::string target);
+        RobotomyRequestForm(const RobotomyRequestForm &copy);
+         ~RobotomyRequestForm();
+        RobotomyRequestForm	&operator=(const RobotomyRequestForm &copy);
         std::string	getTarget() const;
-        
-    // member function
         void	execute(Bureaucrat const & executor) const;
 };
+

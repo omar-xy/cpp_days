@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:05:12 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:40:53 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/01/19 00:01:17 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,22 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
     *this = copy;
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
-{
-    if (this != &copy)
-    {
-        _target = copy.getTarget();
-    }
-    return (*this);
-}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
 
+ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
+{
+    // if (this != &copy)
+    //     _target = copy._target;
+(void)copy;
+    return (*this);
+}
 
 
-std::string	 ShrubberyCreationForm::getTarget() const
+std::string	ShrubberyCreationForm::getTarget() const
 {
     return (_target);
 }

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:08:41 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:46:21 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/01/18 23:54:44 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
-    if (this != &copy)
-    {
-        _target = copy.getTarget();
-    }
+    (void)copy;
     return (*this);
 }
 

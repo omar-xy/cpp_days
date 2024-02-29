@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:53:31 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:42:19 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/01/19 00:58:34 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {
-    if (this != &copy)
-    {
-        _target = copy.getTarget();
-    }
+
+    (void)copy;
     return (*this);
 }
 
@@ -49,11 +47,13 @@ std::string	PresidentialPardonForm::getTarget() const
     return (_target);
 }
 
+
+
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 
     executeCheck(executor);
-        std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+    std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
 

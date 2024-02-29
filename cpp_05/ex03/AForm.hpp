@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 22:31:27 by otaraki           #+#    #+#             */
-/*   Updated: 2024/02/29 11:15:29 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/01/18 23:50:06 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,19 @@ class AForm
         int const			_gradeToSign;
         int const			_gradeToExecute;
     public:
-    // constructors && destructors
         AForm();
         AForm(std::string name, int gradeToSign, int gradeToExecute);
         AForm(const AForm &copy);
         virtual ~AForm();
         AForm	&operator=(const AForm &copy);
-
-    // getters && setters
         std::string	getName() const;
         bool		getSigned() const;
         int			getGradeToSign() const;
         int			getGradeToExecute() const;
-    
-    // member functions
-        void		    beSigned(const Bureaucrat &bureaucrat);
-        void            sginForm(const Bureaucrat &bureaucrat) const;
-        void            executeCheck(const Bureaucrat &bureaucrat) const;
+        void		beSigned(const Bureaucrat &bureaucrat);
+        void        sginForm(const Bureaucrat &bureaucrat) const;
+        void        executeCheck(const Bureaucrat &bureaucrat) const;
         virtual void	execute(Bureaucrat const & executor) const = 0;
-    
-    // exceptions
         class GradeTooHighException : public std::exception
         {
             virtual const char* what() const throw();

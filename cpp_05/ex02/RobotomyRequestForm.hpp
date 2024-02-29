@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:07:24 by otaraki           #+#    #+#             */
-/*   Updated: 2024/01/15 19:08:30 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/02/29 11:41:36 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class RobotomyRequestForm : public AForm
 {
     private:
-        std::string const	_target;
+        std::string _target;
     public:
         RobotomyRequestForm();
         RobotomyRequestForm(std::string target);
