@@ -6,6 +6,8 @@
 #include <cmath>
 
 
+#define CH_AR 1;
+
 class ScalarConverter
 {
     private:
@@ -21,6 +23,7 @@ class ScalarConverter
         static void printInt(std::string _input);
         static void printFloat(std::string _input);
         static void printDouble(std::string _input);
+        static int check_valid_input(std::string _input);
         class ImpossibleException : public std::exception
         {
             virtual const char* what() const throw();
