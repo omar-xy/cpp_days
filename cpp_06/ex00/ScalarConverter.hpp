@@ -7,7 +7,6 @@
 #include <iomanip>
 
 
-#define CH_AR 1;
 
 class ScalarConverter
 {

@@ -3,15 +3,14 @@
 
 int main()
 {
-    Serializer s;
-    Data *d;
-    uintptr_t raw;
+    Data *data = new Data("hello", 42, "world");
+    uintptr_t ptr = Serializer::serialize(data);
+    std::cout << "ptr: " << ptr << std::endl;
 
-    d = new Data("hello", 42, "world");
-    raw = s.serialize(d);
-    std::cout << "raw: " << raw << std::endl;
-    d = s.deserialize(raw);
-    std::cout << "d->s1 " << d->getS1() << std::endl;
-    delete d;
+    Data *data2 = Serializer::deserialize(ptr);
+    std::cout << "data2->s1: " << data2->getS1() << std::endl;
+    std::cout << "data2->n: " << data2->getN() << std::endl;
+    std::cout << "data2->s2: " << data2->getS2() << std::endl;
+    delete data;
     return 0;
 }

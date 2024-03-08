@@ -7,11 +7,13 @@ class Data;
 
 class Serializer
 {
-    public:
+    private:
         Serializer();
         Serializer(Serializer const &copy);
         Serializer &operator=(Serializer const &copy);
         ~Serializer();
-        uintptr_t serialize(Data* ptr);
-        Data* deserialize(uintptr_t raw);
+        
+    public:
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };

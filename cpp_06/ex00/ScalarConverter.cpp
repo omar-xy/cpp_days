@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:43:15 by otaraki           #+#    #+#             */
-/*   Updated: 2024/03/08 15:52:01 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/08 21:05:13 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ int ScalarConverter::check_valid_input(std::string _input)
     if (_input.length() == 1 && !isdigit(_input[0]))
         return 1;
     if (_input.length() > 1 && _input[0] == '-' && !isdigit(_input[1]))
-        return 0;
+        return 2;
     if (_input.length() > 1 && _input[0] == '+' && !isdigit(_input[1]))
-        return 0;
+        return 2;
+    if (_input.length() > 1 && !isdigit(_input[1]))
+        return 2;
     return 0;
 }
 
@@ -96,7 +98,12 @@ void ScalarConverter::printInt(std::string _input)
     {
         if (check_valid_input(_input) == 1)
         {
-            _int = static_cast<int>(_input[0]);
+             _int = static_cast<int>(_input[0]);
+            std::cout << "int: " << _int << std::endl;
+        }
+        else if (!check_valid_input(_input))
+        {
+            _int = atoi(_input.c_str());
             std::cout << "int: " << _int << std::endl;
         }
         else
