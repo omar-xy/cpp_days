@@ -13,7 +13,10 @@ class Data
         Data();
         Data(std::string s1, int n, std::string s2);
         Data(Data const &copy);
-        Data &operator=(Data const &copy);
         ~Data();
+        int getN() const;
+        std::string getS1() const;
+        std::string getS2() const;
+        Data &operator=(Data const &copy);
 };
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 15:18:19 by otaraki           #+#    #+#              #
-#    Updated: 2024/03/08 02:13:16 by otaraki          ###   ########.fr        #
+#    Updated: 2024/03/08 17:13:37 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Program
 
-HEADER = Serializer.hpp
+HEADER = Serializer.hpp Data.hpp
 
-SRC = main.cpp Serializer.cpp 
+SRC = main.cpp Serializer.cpp Data.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

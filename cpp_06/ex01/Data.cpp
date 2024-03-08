@@ -18,6 +18,22 @@ Data::Data(Data const &copy)
 }
 
 
+int Data::getN() const
+{
+    return (_n);
+}
+
+std::string Data::getS1() const
+{
+    return (_s1);
+}
+
+
+std::string Data::getS2() const
+{
+    return (_s2);
+}
+
 Data &Data::operator=(Data const &copy)
 {
     if (this != &copy)

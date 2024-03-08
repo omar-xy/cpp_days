@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 15:18:19 by otaraki           #+#    #+#              #
-#    Updated: 2024/03/05 15:19:23 by otaraki          ###   ########.fr        #
+#    Updated: 2024/03/08 17:13:47 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Program
 
-HEADER = ScalarConversion.hpp
+HEADER = ScalarConverter.hpp
 
 SRC = main.cpp ScalarConverter.cpp 
 
