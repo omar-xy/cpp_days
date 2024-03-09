@@ -4,9 +4,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Program
 
-HEADER = Serializer.hpp Data.hpp
+HEADER = Base.hpp ClassA.hpp ClassB.hpp ClassC.hpp
 
-SRC = main.cpp Serializer.cpp Data.cpp
+SRC = main.cpp Base.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
