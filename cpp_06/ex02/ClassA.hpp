@@ -6,13 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:26:09 by otaraki           #+#    #+#             */
-/*   Updated: 2024/03/10 20:39:08 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/03/10 22:58:02 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-
-
 
 class ClassA : public Base
 {

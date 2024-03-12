@@ -1,5 +1,16 @@
-#include "Serializer.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/10 23:03:35 by otaraki           #+#    #+#             */
+/*   Updated: 2024/03/10 23:03:39 by otaraki          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "Serializer.hpp"
 
 Serializer::Serializer()
 {
@@ -15,9 +26,7 @@ Serializer::Serializer(Serializer const &copy)
 Serializer &Serializer::operator=(Serializer const &copy)
 {
     if (this != &copy)
-    {
         *this = copy;
-    }
     return (*this);
 }
 

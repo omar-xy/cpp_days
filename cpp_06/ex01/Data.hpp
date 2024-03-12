@@ -1,5 +1,16 @@
-#pragma once 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/10 23:02:36 by otaraki           #+#    #+#             */
+/*   Updated: 2024/03/10 23:05:35 by otaraki          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#pragma once 
 
 #include <iostream>
 
@@ -18,5 +29,6 @@ class Data
         std::string getS1() const;
         std::string getS2() const;
         Data &operator=(Data const &copy);
+
 };
 
