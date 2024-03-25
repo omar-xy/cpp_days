@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:41:35 by otaraki           #+#    #+#             */
-/*   Updated: 2024/03/12 01:05:10 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/03/13 21:32:08 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,16 @@ void identify(Base &p)
         ClassA &a = dynamic_cast<ClassA &>(p);
         (void)a; 
         std::cout << "ClassA"  << std::endl;
+    }
+    catch (std::exception &e)
+    {
         try{
             ClassB &b = dynamic_cast<ClassB &>(p);
             (void)b;
             std::cout << "ClassB"  << std::endl;
+        }
+        catch (std::exception &e)
+        {
             try{
                 ClassC &c = dynamic_cast<ClassC &>(p);
                 (void)c;
@@ -55,19 +61,13 @@ void identify(Base &p)
             }
             catch (std::exception &e)
             {
-                std::cout << "C" << std::endl; 
+                std::cout << "C";
                 std::cout << e.what() << std::endl;
             }
-        }
-        catch (std::exception &e)
-        {
-            std::cout << "B" << std::endl;
+            std::cout << "B";
             std::cout << e.what() << std::endl;
         }
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "A" << std::endl;
+        std::cout << "A";
         std::cout << e.what() << std::endl;
     }
 }
@@ -75,7 +75,7 @@ void identify(Base &p)
 int main()
 {
     Base *base = generate();
-    identify(base);
+    identify(*base);
     delete base;
     return (0);
 }

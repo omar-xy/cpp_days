@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 23:02:15 by otaraki           #+#    #+#             */
-/*   Updated: 2024/03/11 23:42:43 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/03/13 20:47:18 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,11 @@ class ScalarConverter
         ScalarConverter &operator=(ScalarConverter const &copy);
         ~ScalarConverter();
     public:
-        
-        //
         static void convert(std::string _input);
         static void printChar(std::string _input);
         static void printInt(std::string _input);
         static void printFloat(std::string _input);
         static void printDouble(std::string _input);
-        // static int check_valid_input(std::string _input);
         class ImpossibleException : public std::exception
         {
             virtual const char* what() const throw();
