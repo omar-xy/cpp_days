@@ -8,7 +8,6 @@ int main()
     v.push_back(1);
     v.push_back(4);
     v.push_back(3);
-
     try
     {
         easyfind(v, 3);

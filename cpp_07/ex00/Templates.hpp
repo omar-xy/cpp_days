@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:38:03 by otaraki           #+#    #+#             */
-/*   Updated: 2024/03/14 16:16:34 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/03/27 22:42:23 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 
-template <typename T> void swap(T &x, T &y)
+template <typename T>
+void swap(T &x, T &y)
 {
     T temp;
     temp = x;
@@ -23,12 +24,14 @@ template <typename T> void swap(T &x, T &y)
     y = temp;
 }
 
-template <typename T> T max(T &x, T &y)
+template <typename T> 
+T max(T &x, T &y)
 {
     return (x > y) ? x : y;
 }
 
-template <typename T> T min(T &x, T &y)
+template <typename T> 
+T min(T &x, T &y)
 {
     return (x < y) ? x : y;
 }

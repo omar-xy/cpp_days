@@ -6,13 +6,15 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:20:13 by otaraki           #+#    #+#             */
-/*   Updated: 2024/03/14 16:20:24 by otaraki          ###   ########.fr       */
+/*   Updated: 2024/03/27 22:54:06 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
-template <typename T> void iter(T *array, int len, void (*f)(T const &))
+template <typename T>
+
+void iter(T *array, int len, void (*f)(T const &))
 {
     for (int i = 0; i < len; i++)
         f(array[i]);
