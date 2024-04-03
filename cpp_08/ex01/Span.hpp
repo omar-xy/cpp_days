@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <exception>	
+
 
 
 class Span
@@ -22,7 +25,15 @@ class Span
         unsigned int longestestSpan();
         void show();
 
+        class FullSpanException : public std::exception
+        {
+            virtual const char* what() const throw();
+        };
 
+        class NoSpanException : public std::exception
+        {
+            virtual const char* what() const throw();
+        };
 
 
 
