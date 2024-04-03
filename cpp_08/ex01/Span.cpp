@@ -74,10 +74,10 @@ unsigned int Span::shortestSpan()
     std::vector<int>::iterator it;
     std::vector<int> temp = v;
     std::sort(temp.begin(), temp.end());
-    unsigned minSpan = std::distance(temp.begin(), temp.begin() + 1); 
-    for(it = temp.begin() + 1; it != temp.end(); it++)
+    unsigned int minSpan = temp[1] - temp[0]; 
+    for(unsigned int i = 1; i  <  temp.size(); i++)
     {
-        unsigned int tmpSpan = std::distance(it, it + 1);
+        unsigned int tmpSpan = temp[i + 1] - temp[i];
         if (tmpSpan < minSpan)
             minSpan = tmpSpan;
     }
