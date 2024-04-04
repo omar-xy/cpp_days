@@ -2,16 +2,16 @@
 
 int main()
 {
-    std::vector<int> v;
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(1);
-    v.push_back(4);
-    v.push_back(3);
-
     try
     {
-        easyfind(v, 3);
+        
+        std::vector<int> v;
+        v.push_back(1);
+        v.push_back(2);
+        v.push_back(1);
+        v.push_back(4);
+        v.push_back(3);
+        easyfind(v, 1);
     }
     catch (std::exception &e)
     {
