@@ -24,12 +24,10 @@ class Span
         unsigned int shortestSpan();
         unsigned int longestestSpan();
         void show();
-
         class FullSpanException : public std::exception
         {
             virtual const char* what() const throw();
         };
-
         class NoSpanException : public std::exception
         {
             virtual const char* what() const throw();
