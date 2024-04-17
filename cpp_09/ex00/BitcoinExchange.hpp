@@ -6,30 +6,9 @@
 # include <map>
 # include <algorithm>
 # include <iterator>
+# include <fstream>
+#include <sstream>
 
-
-// class Date
-// {
-//     public:
-//         Date();
-//         Date(int day, int month, int year);
-//         Date(const Date &other);
-//         Date &operator=(const Date &other);
-//         ~Date();
-//         int getDay() const;
-//         int getMonth() const;
-//         int getYear() const;
-//         void setDay(int day);
-//         void setMonth(int month);
-//         void setYear(int year);
-//         void show() const;
-//     private:
-//         int day;
-//         int month;
-//         int year;
-// };
-
-// std::ostream &operator<<(std::ostream &out, const Date &date);
 
 
 class BitcoinExchange
@@ -40,10 +19,13 @@ class BitcoinExchange
         BitcoinExchange();
         // BitcoinExchange(const BitcoinExchange &other);
         // BitcoinExchange &operator=(const BitcoinExchange &other);
-        // void storeDatacsv();
         // ~BitcoinExchange();
-        // void parseFile();
+        // void storeDatacsv();
         // void parseData();
+        void parseFileInput(std::string filename);
+        double retValue(std::string date, double value);
+        // int checkValidDate(std::istringstream key);
 };
 
 // std::ostream &operator<<(std::ostream &out, const BitcoinExchange &exchange);
+
