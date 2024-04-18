@@ -87,6 +87,15 @@ void BitcoinExchange::parseFileInput(std::string filename)
                 std::cerr << "bad input => " << key << std::endl;
             else 
             {
+                std::cout << res.tm_year << std::endl;
+                std::cout << res.tm_mon << std::endl;
+                if (res.tm_mon + 1 == 2) {
+                    if (((res.tm_year % 100 )% 4 && res.tm_mday > 28) || \
+                    ((res.tm_year % 100 )% 4 == 0 && res.tm_mday > 29)) {
+                        std::cerr << "bad input => " << key << std::endl;
+                        return ;
+                    }
+                }
                 if ((value >= 0 && value <= 1000))
                     std::cout << key << " => " << value << " = " << retValue(key, value) << std::endl;
                 else if (value < 0)
