@@ -1,5 +1,4 @@
-#ifndef RPN_HPP
-#define RPN_HPP
+#pragma once
 
 #include <string>
 #include <stack>
@@ -22,4 +21,3 @@ class RPN
 };
 
 std::vector<std::string> split(const std::string& str, char delimiter);
-#endif

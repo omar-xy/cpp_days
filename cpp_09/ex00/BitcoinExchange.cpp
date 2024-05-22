@@ -17,7 +17,7 @@ BitcoinExchange::BitcoinExchange()
         {
             std::istringstream ss(line);
             std::string item;
-            std::vector<std::string> elements;
+            std::deque<std::string> elements;
             while (std::getline(ss, item, ',')) 
             {
                 elements.push_back(item);
@@ -70,7 +70,7 @@ void BitcoinExchange::parseFileInput(std::string filename)
     {
         std::istringstream ss(line);
         std::string item;
-        std::vector<std::string> elements;
+        std::deque<std::string> elements;
         while (std::getline(ss, item, '|'))
         {
             elements.push_back(item);
@@ -83,14 +83,14 @@ void BitcoinExchange::parseFileInput(std::string filename)
             std::istringstream valueStream(elements[1]);
             ikey >> key;
             valueStream >> value;
-            if(strptime(key.c_str(), "%Y-%m-%d", &res) == NULL) 
+            if(strptime(key.c_str(), "%Y-%m-%d", &res) == NULL)
                 std::cerr << "bad input => " << key << std::endl;
             else 
             {
-                std::cout << res.tm_year << std::endl;
-                std::cout << res.tm_mon << std::endl;
+                // std::cout << res.tm_year << std::endl;
+                // std::cout << res.tm_mon << std::endl;
                 if (res.tm_mon + 1 == 2) {
-                    if (((res.tm_year % 100 )% 4 && res.tm_mday > 28) || \
+                    if (((res.tm_year % 100 ) % 4 && res.tm_mday > 28) || \
                     ((res.tm_year % 100 )% 4 == 0 && res.tm_mday > 29)) {
                         std::cerr << "bad input => " << key << std::endl;
                         return ;
