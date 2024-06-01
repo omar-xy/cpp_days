@@ -23,7 +23,7 @@ void easyfind(T &C, int n)
     if (it != C.end())
     {
         std::cout << "Found " << n << " at position: " << std::distance(C.begin(), it) << std::endl;
-    } 
+    }
     else 
     {
         throw Expetion();

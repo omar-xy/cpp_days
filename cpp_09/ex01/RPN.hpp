@@ -20,4 +20,4 @@ class RPN
         std::stack<double> stack;
 };
 
-std::vector<std::string> split(const std::string& str, char delimiter);
+std::deque<std::string> split(const std::string& str, char delimiter);

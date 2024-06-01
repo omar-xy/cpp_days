@@ -4,10 +4,11 @@ RPN::RPN(const std::string& expression) : expression(expression) {}
 
 void RPN::parse() 
 {
-    std::vector<std::string> tokens = split(expression, ' ');
-    for (size_t i = 0; i < tokens.size(); i++)
+    std::string token;
+    std::istringstream tokenStream(expression);
+    while (std::getline(tokenStream, token, ' '))
     {
-        if (tokens[i] == "+" || tokens[i] == "-" || tokens[i] == "*" || tokens[i] == "/")
+        if (token == "+" || token == "-" || token == "*" || token == "/")
         {
             if (stack.size() < 2)
             {
@@ -18,13 +19,13 @@ void RPN::parse()
             stack.pop();
             double op1 = stack.top();
             stack.pop();
-            if (tokens[i] == "+")
+            if (token == "+")
                 stack.push(op1 + op2);
-            else if (tokens[i] == "-")
+            else if (token == "-")
                 stack.push(op1 - op2);
-            else if (tokens[i] == "*")
+            else if (token == "*")
                 stack.push(op1 * op2);
-            else if (tokens[i] == "/")
+            else if (token == "/")
             {
                 if (op2 == 0)
                 {
@@ -36,7 +37,7 @@ void RPN::parse()
         }
         else
         {
-            std::istringstream iss(tokens[i]);
+            std::istringstream iss(token);
             double value;
             if (!(iss >> value))
             {
@@ -52,15 +53,4 @@ void RPN::parse()
         return ;
     }
     std::cout << stack.top() << std::endl;
-}
-
-
-std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> tokens;
-    std::string token;
-    std::istringstream tokenStream(str);
-    while (std::getline(tokenStream, token, delimiter)) {
-        tokens.push_back(token);
-    }
-    return tokens;
 }

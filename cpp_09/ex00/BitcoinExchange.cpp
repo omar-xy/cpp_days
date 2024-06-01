@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <map>
+#include <list>
 #include <time.h>
 
 BitcoinExchange::BitcoinExchange()
@@ -17,15 +18,16 @@ BitcoinExchange::BitcoinExchange()
         {
             std::istringstream ss(line);
             std::string item;
-            std::deque<std::string> elements;
+            std::list<std::string> elements;
             while (std::getline(ss, item, ',')) 
             {
                 elements.push_back(item);
             }
             if (elements.size() >= 2) 
             {
-                std::string key = elements[0];
-                std::istringstream valueStream(elements[1]);
+                std::string key = elements.front();
+                elements.pop_front();
+                std::istringstream valueStream(elements.front());
                 double value;
                 valueStream >> value; // istringstream for conversion to double
                 dataMap[key] = value;
@@ -70,7 +72,7 @@ void BitcoinExchange::parseFileInput(std::string filename)
     {
         std::istringstream ss(line);
         std::string item;
-        std::deque<std::string> elements;
+        std::list<std::string> elements;
         while (std::getline(ss, item, '|'))
         {
             elements.push_back(item);
@@ -79,8 +81,9 @@ void BitcoinExchange::parseFileInput(std::string filename)
         {
             double value;
             std::string key;
-            std::istringstream ikey(elements[0]);
-            std::istringstream valueStream(elements[1]);
+            std::istringstream ikey(elements.front());
+            elements.pop_front();
+            std::istringstream valueStream(elements.front());
             ikey >> key;
             valueStream >> value;
             if(strptime(key.c_str(), "%Y-%m-%d", &res) == NULL)

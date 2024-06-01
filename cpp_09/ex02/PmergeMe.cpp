@@ -1,103 +1,129 @@
 #include "PmergeMe.hpp"
-#include <algorithm>  // For std::copy and std::sort
+#include <algorithm>
+#include <list>  // For std::copy and std::sort
 
 PmergeMe::PmergeMe() {}
 
 PmergeMe::~PmergeMe() {}
 
+void binaryInsertV(std::vector<int>& main_chain, int value)
+{
+    std::vector<int>::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), value);
+    main_chain.insert(it, value);
+}
+void binaryInsertD(std::deque<int>& main_chain, int value)
+{
+    std::deque<int>::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), value);
+    main_chain.insert(it, value);
+}
+
+
+std::vector<int> sortPairsV(const std::vector<int>& numbers, std::vector<int>& pending) {
+    std::vector<int> main_chain;
+    size_t n = numbers.size();
+
+    // Create pairs and sort each pair
+    for (size_t i = 0; i < n; i += 2)
+    {
+        if (i + 1 < n) 
+        {
+            int a = numbers[i];
+            int b = numbers[i + 1];
+            if (a > b) std::swap(a, b);
+            pending.push_back(a);
+            main_chain.push_back(b);
+        }
+        else
+            pending.push_back(numbers[i]);
+    }
+    // Sort the main chain
+    std::sort(main_chain.begin(), main_chain.end());
+
+    return main_chain;
+}
+
+std::deque<int> sortPairsD(const std::deque<int>& numbers, std::deque<int>& pending) {
+    std::deque<int> main_chain;
+    size_t n = numbers.size();
+
+    // Create pairs and sort each pair
+    for (size_t i = 0; i < n; i += 2)
+    {
+        if (i + 1 < n) 
+        {
+            int a = numbers[i];
+            int b = numbers[i + 1];
+            if (a > b) std::swap(a, b);
+            pending.push_back(a);
+            main_chain.push_back(b);
+        }
+        else
+            pending.push_back(numbers[i]);
+    }
+    // Sort the main chain
+    std::sort(main_chain.begin(), main_chain.end());
+
+    return main_chain;
+}
+
+// Ford-Johnson sorting function
+std::vector<int> fordJohnsonSortV(std::vector<int> numbers)
+{
+    std::vector<int> pending;
+
+    while (numbers.size() >= 3)
+        numbers = sortPairsV(numbers, pending);
+    if (!numbers.empty()) 
+    { 
+        for (size_t i = 0; i < pending.size(); ++i) 
+            binaryInsertV(numbers, pending[i]);
+    }
+    return numbers;
+}
+std::deque<int> fordJohnsonSortD(std::deque<int> numbers)
+{
+    std::deque<int> pending;
+
+    while (numbers.size() >= 3)
+        numbers = sortPairsD(numbers, pending);
+    if (!numbers.empty()) 
+    { 
+        for (size_t i = 0; i < pending.size(); ++i) 
+            binaryInsertD(numbers, pending[i]);
+    }
+    return numbers;
+}
+
+
 void PmergeMe::sortAndTime(int argc, char** argv) {
     std::vector<int> vec;
-    std::list<int> lst;
+    std::deque<int> deq;
 
-    for (int i = 1; i < argc; ++i) {
+    for (int i = 1; i < argc; ++i) 
+    {
         int num = std::atoi(argv[i]);
-        if (num > 0) {
+        if (num > 0) 
+        {
             vec.push_back(num);
-            lst.push_back(num);
-        } else {
+            deq.push_back(num);
+        } else 
+        {
             std::cerr << "Error: non-positive integer encountered: " << argv[i] << std::endl;
             return;
         }
     }
-
     std::cout << "Before: ";
     printSequence("", vec);
-
     clock_t start = clock();
-    mergeInsertSort(vec);
+    vec = fordJohnsonSortV(vec);
     clock_t end = clock();
     std::cout << "After: ";
-    printSequence("", vec);
-    std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << static_cast<double>(end - start) / CLOCKS_PER_SEC << " s" << std::endl;
-
-    start = clock();
-    mergeInsertSort(lst);
-    end = clock();
-    std::cout << "Time to process a range of " << lst.size() << " elements with std::list: " << static_cast<double>(end - start) / CLOCKS_PER_SEC << " s" << std::endl;
-}
-
-void PmergeMe::mergeInsertSort(std::vector<int>& vec) {
-    mergeInsertSort(vec, 0, vec.size() - 1);
-}
-
-void PmergeMe::mergeInsertSort(std::list<int>& lst) {
-    lst.sort();  // Using std::list's sort as a placeholder
-}
-
-void PmergeMe::mergeInsertSort(std::vector<int>& vec, int left, int right) {
-    if (left < right) 
-    {
-        if (right - left < 10)
-            insertionSort(vec, left, right);
-        else 
-        {
-            int mid = left + (right - left) / 2;
-            mergeInsertSort(vec, left, mid);
-            mergeInsertSort(vec, mid + 1, right);
-            merge(vec, left, mid, right);
-        }
-    }
-}
-
-void PmergeMe::insertionSort(std::vector<int>& vec, int left, int right) {
-    for (int i = left + 1; i <= right; ++i)
-    {
-        int key = vec[i];
-        int j = i - 1;
-        while (j >= left && vec[j] > key)
-        {
-            vec[j + 1] = vec[j];
-            --j;
-        }
-        vec[j + 1] = key;
-    }
-}
-
-void PmergeMe::merge(std::vector<int>& vec, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-
-    std::vector<int> L(n1), R(n2);
-    std::copy(vec.begin() + left, vec.begin() + mid + 1, L.begin());
-    std::copy(vec.begin() + mid + 1, vec.begin() + right + 1, R.begin());
-
-    int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2)
-    {
-        if (L[i] <= R[j]) 
-            vec[k++] = L[i++];
-        else 
-            vec[k++] = R[j++];
-    }
-
-    while (i < n1)
-    {
-        vec[k++] = L[i++];
-    }
-
-    while (j < n2) {
-        vec[k++] = R[j++];
-    }
+    printSequence("vector ", vec);
+    // std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << static_cast<double>(end - start) / CLOCKS_PER_SEC << " s" << std::endl;
+     start = clock();
+    deq = fordJohnsonSortD(deq);
+     end = clock();
+    // std::cout << "Time to process a range of " << deq.size() << " elements with std::list: " << static_cast<double>(end - start) / CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 void PmergeMe::printSequence(const std::string& message, const std::vector<int>& vec) {
@@ -111,13 +137,12 @@ void PmergeMe::printSequence(const std::string& message, const std::vector<int>&
     std::cout << std::endl;
 }
 
-void PmergeMe::printSequence(const std::string& message, const std::list<int>& lst) {
+void PmergeMe::printSequence(const std::string& message, const std::deque<int>& deq) 
+{
     std::cout << message;
-    for (std::list<int>::const_iterator it = lst.begin(); it != lst.end(); ++it) {
-        std::cout << *it;
-        std::list<int>::const_iterator next = it;
-        ++next;
-        if (next != lst.end()) {
+    for (size_t i = 0; i < deq.size(); ++i) {
+        std::cout << deq[i];
+        if (i != deq.size() - 1) {
             std::cout << " ";
         }
     }
