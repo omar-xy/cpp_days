@@ -1,6 +1,14 @@
 #include "RPN.hpp"
 
-RPN::RPN(const std::string& expression) : expression(expression) {}
+RPN::RPN(const std::string& expression) : expression(expression)
+{
+
+}
+
+RPN::RPN(const RPN& copy) : expression(copy.expression)
+{
+
+}
 
 void RPN::parse() 
 {
@@ -12,7 +20,7 @@ void RPN::parse()
         {
             if (stack.size() < 2)
             {
-                std::cerr << "Error: Not enough operands" << std::endl;
+                std::cerr << GRE << "Error: Not enough operands" << WHI <<std::endl;
                 return ;
             }
             double op2 = stack.top();
@@ -29,7 +37,7 @@ void RPN::parse()
             {
                 if (op2 == 0)
                 {
-                    std::cerr << "Error: Division by zero" << std::endl;
+                    std::cerr << RED << "Error: Division by zero" << WHI <<std::endl;
                     return ;
                 }
                 stack.push(op1 / op2);
@@ -41,7 +49,7 @@ void RPN::parse()
             double value;
             if (!(iss >> value))
             {
-                std::cerr << "Error: Invalid token" << std::endl;
+                std::cerr << RED << "Error: Invalid token" << WHI <<std::endl;
                 return ;
             }
             stack.push(value);
@@ -49,8 +57,27 @@ void RPN::parse()
     }
     if (stack.size() != 1)
     {
-        std::cerr << "Error: Invalid expression" << std::endl;
+        std::cerr << RED << "Error: Invalid expression" << WHI <<std::endl;
         return ;
     }
-    std::cout << stack.top() << std::endl;
+    std::cout << YEL << stack.top() << WHI <<std::endl;
 }
+
+RPN::RPN()
+{
+
+}
+
+RPN& RPN::operator=(const RPN& copy)
+{
+    if (this == &copy)
+        return *this;
+    expression = copy.expression;
+    return *this;
+}
+
+RPN::~RPN()
+{
+
+}
+ 

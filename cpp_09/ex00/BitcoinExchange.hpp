@@ -10,22 +10,23 @@
 #include <sstream>
 
 
+#define RED "\e[1;31m"
+#define WHI "\e[0;37m"
+#define GRE "\e[1;32m"
+#define YEL "\e[1;33m"
+
+
 
 class BitcoinExchange
 {
-    private:
-        std::map<std::string, double> dataMap;
     public:
+        std::map<std::string, double> dataMap;
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &other);
         BitcoinExchange &operator=(const BitcoinExchange &other);
-        // ~BitcoinExchange();
-        // void storeDatacsv();
-        // void parseData();
+        ~BitcoinExchange();
         void parseFileInput(std::string filename);
         double retValue(std::string date, double value);
-        // int checkValidDate(std::istringstream key);
 };
 
-// std::ostream &operator<<(std::ostream &out, const BitcoinExchange &exchange);
 

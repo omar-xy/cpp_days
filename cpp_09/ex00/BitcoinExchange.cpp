@@ -28,6 +28,7 @@ BitcoinExchange::BitcoinExchange()
                 std::string key = elements.front();
                 elements.pop_front();
                 std::istringstream valueStream(elements.front());
+                elements.front();
                 double value;
                 valueStream >> value; // istringstream for conversion to double
                 dataMap[key] = value;
@@ -36,14 +37,13 @@ BitcoinExchange::BitcoinExchange()
         data.close();
     }
     else
-        std::cout << "Unable to open file" << std::endl;
+        std::cout << RED << "Unable to open file" << WHI <<std::endl;
 }
 
 
 double BitcoinExchange::retValue(std::string date, double value)
 {
         std::istringstream ss(date);
-
         std::map<std::string, double>::iterator it = dataMap.lower_bound(date);
         if (it != dataMap.end()) 
         {
@@ -54,19 +54,31 @@ double BitcoinExchange::retValue(std::string date, double value)
                 --it;
             }
             return it->second * value;
-        } 
+        }
+        else if (it == dataMap.end())
+        {
+            --it;
+            return (it->second * value);
+        }
         else 
             return -1;
- }
+}
 
 void BitcoinExchange::parseFileInput(std::string filename)
 {
     BitcoinExchange db;
     struct tm res;
     std::ifstream file(filename);
-    file.is_open();
+    if (!file.is_open())
+    {
+        std::cerr << RED << "Error: opening file"<< WHI <<std::endl;
+    }
     std::string line;
-    std::getline(file, line);
+    if (!(std::getline(file, line)))
+    {
+        std::cerr << RED << "Error: Empty input file" << WHI <<std::endl;
+        return ;
+    }
     std::istringstream headFile(line);
     while(std::getline(file, line))
     {
@@ -74,9 +86,7 @@ void BitcoinExchange::parseFileInput(std::string filename)
         std::string item;
         std::list<std::string> elements;
         while (std::getline(ss, item, '|'))
-        {
             elements.push_back(item);
-        }
         if (elements.size() == 2)
         {
             double value;
@@ -84,34 +94,53 @@ void BitcoinExchange::parseFileInput(std::string filename)
             std::istringstream ikey(elements.front());
             elements.pop_front();
             std::istringstream valueStream(elements.front());
+            elements.pop_front();
             ikey >> key;
             valueStream >> value;
             if(strptime(key.c_str(), "%Y-%m-%d", &res) == NULL)
-                std::cerr << "bad input => " << key << std::endl;
+                std::cerr << GRE << "bad input => " << key << WHI << std::endl;
             else 
             {
-                // std::cout << res.tm_year << std::endl;
-                // std::cout << res.tm_mon << std::endl;
-                if (res.tm_mon + 1 == 2) {
+                if (res.tm_mon + 1 == 2)
+                {
                     if (((res.tm_year % 100 ) % 4 && res.tm_mday > 28) || \
                     ((res.tm_year % 100 )% 4 == 0 && res.tm_mday > 29)) {
-                        std::cerr << "bad input => " << key << std::endl;
+                        std::cerr << GRE << "bad input => " << key << WHI << std::endl;
                         return ;
                     }
                 }
                 if ((value >= 0 && value <= 1000))
-                    std::cout << key << " => " << value << " = " << retValue(key, value) << std::endl;
+                    std::cout << YEL << key << " => " << value << " = " << retValue(key, value) << WHI <<std::endl;
                 else if (value < 0)
-                    std::cerr << "Error: not a positive number." << std::endl;
+                    std::cerr  << GRE << "Error: not a positive number." << WHI << std::endl;
                 else if (value >= 1000)
-                    std::cerr << "Error: too large a number." << std::endl;
+                    std::cerr << GRE << "Error: too large number." << WHI << std::endl;
             }
-    
         }
         else if (elements.size() >= 1)
-            std::cerr << "Error: bad input => " <<  line << std::endl;
+            std::cerr << GRE << "Error: bad input => " <<  line << WHI << std::endl;
         else
-            std::cerr << "No line found\n";
+            std::cerr << GRE << "No line found"<< WHI << std::endl;
     }
     file.close();
+}
+
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
+{
+    dataMap = other.dataMap;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
+{
+    if (this != &other)
+    {
+        dataMap = other.dataMap;
+    }
+    return *this;
+}
+
+BitcoinExchange::~BitcoinExchange()
+{
+    
 }

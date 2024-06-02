@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 #include <algorithm>
-#include <list>  // For std::copy and std::sort
+#include <list>
 
 PmergeMe::PmergeMe() {}
 
@@ -22,7 +22,6 @@ std::vector<int> sortPairsV(const std::vector<int>& numbers, std::vector<int>& p
     std::vector<int> main_chain;
     size_t n = numbers.size();
 
-    // Create pairs and sort each pair
     for (size_t i = 0; i < n; i += 2)
     {
         if (i + 1 < n) 
@@ -36,9 +35,7 @@ std::vector<int> sortPairsV(const std::vector<int>& numbers, std::vector<int>& p
         else
             pending.push_back(numbers[i]);
     }
-    // Sort the main chain
     std::sort(main_chain.begin(), main_chain.end());
-
     return main_chain;
 }
 
@@ -46,7 +43,6 @@ std::deque<int> sortPairsD(const std::deque<int>& numbers, std::deque<int>& pend
     std::deque<int> main_chain;
     size_t n = numbers.size();
 
-    // Create pairs and sort each pair
     for (size_t i = 0; i < n; i += 2)
     {
         if (i + 1 < n) 
@@ -60,13 +56,10 @@ std::deque<int> sortPairsD(const std::deque<int>& numbers, std::deque<int>& pend
         else
             pending.push_back(numbers[i]);
     }
-    // Sort the main chain
     std::sort(main_chain.begin(), main_chain.end());
-
     return main_chain;
 }
 
-// Ford-Johnson sorting function
 std::vector<int> fordJohnsonSortV(std::vector<int> numbers)
 {
     std::vector<int> pending;
@@ -112,27 +105,29 @@ void PmergeMe::sortAndTime(int argc, char** argv) {
             return;
         }
     }
-    std::cout << "Before: ";
+    std::cout << GRE << "Before: ";
     printSequence("", vec);
     clock_t start = clock();
     vec = fordJohnsonSortV(vec);
     clock_t end = clock();
-    std::cout << "After: ";
+    std::cout << WHI << std::endl;
+    std::cout << YEL << "After: ";
     printSequence("vector ", vec);
-    // std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << static_cast<double>(end - start) / CLOCKS_PER_SEC << " s" << std::endl;
+    std::cout << WHI;
+    std::cout << RED << "Time to process a range of " << vec.size() << " elements with std::vector: " << static_cast<double>(end - start)  << " us" << std::endl;
      start = clock();
     deq = fordJohnsonSortD(deq);
      end = clock();
-    // std::cout << "Time to process a range of " << deq.size() << " elements with std::list: " << static_cast<double>(end - start) / CLOCKS_PER_SEC << " s" << std::endl;
+    std::cout << "Time to process a range of " << deq.size() << " elements with std::list: " << (static_cast<double>(end - start) )  << " us" << std::endl;
 }
 
 void PmergeMe::printSequence(const std::string& message, const std::vector<int>& vec) {
     std::cout << message;
-    for (size_t i = 0; i < vec.size(); ++i) {
+    for (size_t i = 0; i < vec.size(); ++i)
+    {
         std::cout << vec[i];
-        if (i != vec.size() - 1) {
+        if (i != vec.size() - 1)
             std::cout << " ";
-        }
     }
     std::cout << std::endl;
 }
@@ -148,3 +143,14 @@ void PmergeMe::printSequence(const std::string& message, const std::deque<int>& 
     }
     std::cout << std::endl;
 }
+
+
+PmergeMe::PmergeMe(const PmergeMe &other) {
+    (void)other;
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
+    (void)other;
+    return *this;
+}
+

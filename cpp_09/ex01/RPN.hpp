@@ -9,10 +9,19 @@
 #include <cstring>
 
 
+#define RED "\e[1;31m"
+#define WHI "\e[0;37m"
+#define GRE "\e[1;32m"
+#define YEL "\e[1;33m"
+
 class RPN 
 {
     public:
+        RPN();
         RPN(const std::string& expression);
+        RPN(const RPN& copy);
+        ~RPN();
+        RPN& operator=(const RPN& copy);
         void parse();
 
     private:
