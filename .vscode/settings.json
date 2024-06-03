@@ -69,7 +69,9 @@
         "__tree": "cpp",
         "map": "cpp",
         "filesystem": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "__functional_03": "cpp",
+        "memory_resource": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
